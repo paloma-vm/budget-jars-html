@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Jars</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>Home</li>
+                <li>Get Started</li>
+                <li>About</li>
+            </ul>
+        </nav>
+    </header>
+    <div className='BudgetForm'>
+      <h2>
+        Please enter monthly amounts in the blank spaces. 
+        If an item does not apply, please leave the space blank.
+      </h2>
+
+      <h3>Total Income</h3>
+      <form className='TotalIncome'>
+        <div className='row'>
+          <label>Net income #1</label>
+          <input
+            type="number"
+            
+          />
+        </div>
+        <div className='row'>
+          <label>Net income #2</label>
+          <input
+            type="number"
+            value={netIncome2}
+            onChan
+          />
+        </div>
+        <div className='row'>
+          <label>Rental income</label>
+          <input
+            type="number"
+            value={rentalIncome}
+            onChange
+          />
+        </div>
+        <div className='row'>
+          <label>Spousal/Child Support</label>
+          <input
+            type="number"
+            value={spousalChild}
+            onChange
+          />
+        </div>
+        <div className='row'>
+          <label>Government Benefits</label>
+          <input
+            type="number"
+            value={govtBenefits}
+            onChange
+          />
+        </div>
+        <div className='row'>
+          <label>Other income</label>
+          <input
+            type="number"
+            value={otherIncome}
+            onChang
+          />
+        </div>
+      </form>
+
+      <h3>Fixed Expenses</h3>
+      <form className='FixedExpenses'>
+        <div className='row'>
+          <label>Mortgage or Rent</label>
+          <input
+            type="number"
+            value={mortgage}
+            onCh
+          />
+        </div>
+        <div className='row'>
+          <label>Property Tax</label>
+          <input
+            type="number"
+            value={propertyTax}
+            onChang
+          />
+        </div>
+        <div className='row'>
+          <label>Electricity</label>
+          <input
+            type="number"
+            value={electricity}
+            onChang
+          />
+        </div>
+        <div className='row'>
+          <label>Gas and Water</label>
+          <input
+            type="number"
+            value={gasWater}
+            onCh
+          />
+        </div>
+        <div className='row'>
+          <label>Maintenance Fees</label>
+          <input
+            type="number"
+            value={maintenanceFees}
+          />
+        </div>
+        <div className='row'>
+          <label>Cable</label>
+          <input
+            type="number"
+            value={cable}
+            o
+          />
+        </div>
+        <div className='row'>
+          <label>Phone #1</label>
+          <input
+            type="number"
+            value={phone1}
+            on
+          />
+        </div>
+        <div className='row'>
+          <label>Phone #2</label>
+          <input
+            type="number"
+            value={phone2}
+            on
+          />
+        </div>
+        <div className='row'>
+          <label>Internet</label>
+          <input
+            type="number"
+            value={internet}
+            onCh
+          />    
+        </div>
+        <div className='row'>
+          <label>Home Insurance</label>
+          <input
+            type="number"
+            value={homeInsurance}
+            onChange=
+          />
+        </div>
+        <div className='row'>
+          <label>Childcare</label>
+          <input
+            type="number"
+            value={childcare}
+            onCha
+          />
+        </div>
+        <div className='row'>
+          <label>Car #1</label>
+          <input
+            type="number"
+            value={car1}
+            
+          />
+        </div>
+        <div className='row'>
+          <label>Car #2</label>
+          <input
+            type="number"
+            value={car2}
+            
+          />
+        </div>
+        <div className='row'>
+          <label>Car insurance and registration</label>
+          <input
+            type="number"
+            value={carInsRegn}
+            onChan
+          />    
+        </div>
+        <div className='row'>
+          <label>Life and Health Insurance</label>
+          <input
+            type="number"
+            value={lifeHealthIns}
+            onChange=
+          />  
+        </div>
+      </form>
+
+      <h3>Variable Expenses</h3>
+      <form className='VariableExpenses'>
+        <div className='row'>
+          <label>Allowances</label>
+          <input
+            type="number"
+            value={allowances}
+            onChan
+          />
+        </div>
+        <div className='row'>
+          <label>Gas/oil</label>
+          <input
+            type="number"
+            value={gasOil}
+            on
+          />
+        </div>
+        <div className='row'>
+          <label>Car repairs</label>
+          <input
+            type="number"
+            value={carRepairs}
+            onChan
+          />
+        </div>
+        {/* pausing here to work on the jars */}
+
+
+
+      </form>
+    </div>
+    <footer>
+        <ul>
+            <li>Paloma Valdez-Marsh</li>
+            <li>2023</li>
+        </ul>
+
+    </footer>
+</body>
+</html>
