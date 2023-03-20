@@ -20,7 +20,7 @@ img {
     text-align: center; */
 }
 
-.jar-list {
+.jar {
   
     position: relative;
     /* text-align: center; */
@@ -44,4 +44,8 @@ img {
     
     text-align: center;
     width: 100%;
+}
+
+.highlight {
+    background-color: chartreuse;
 }
