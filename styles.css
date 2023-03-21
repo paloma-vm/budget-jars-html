@@ -26,6 +26,12 @@ img {
     /* text-align: center; */
 }
 
+.jarDiv {
+  
+    position: relative;
+    /* text-align: center; */
+}
+
 .display-label {
     left: 0;
     position: absolute;
@@ -48,4 +54,32 @@ img {
 
 .highlight {
     background-color: chartreuse;
+}
+
+.btn {
+    background-color: #f1f1f1;
+}
+
+.active, .btn:hover {
+    background-color: coral;
+}
+
+.select-jar {
+    font-size: large;
+    gap: 2em;
+}
+
+.options {
+    font-size: 2em;
+    width: 300px;
+    padding: 0.5em;
+}
+
+option {
+    font-size: 2em;
+}
+
+input {
+    font-size: large;
+    padding: 0.5em;
 }
