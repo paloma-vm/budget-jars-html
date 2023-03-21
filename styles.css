@@ -1,11 +1,28 @@
 body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
      Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    
 }
 
 ul {
     display: flex;
     gap: 2em;
+}
+
+a {
+    display: inline-block;
+    font-weight: bold;
+    text-decoration: none;
+    
+}
+
+ul {
+    list-style-type: none;
+}
+
+.header-title {
+    display: flex;
+    justify-content: center;
 }
 
 img {
@@ -18,6 +35,7 @@ img {
     margin: auto;
     /* position: relative;
     text-align: center; */
+    padding: 50px;
 }
 
 .jar {
@@ -64,9 +82,16 @@ img {
     background-color: coral;
 }
 
+button {
+    width: 80px;
+    height: 45px;
+}
+
 .select-jar {
     font-size: large;
+    display: flex;
     gap: 2em;
+    justify-content: center;
 }
 
 .options {
@@ -83,3 +108,17 @@ input {
     font-size: large;
     padding: 0.5em;
 }
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 40%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.BudgetForm {
+    margin-left: 100px;
+}
+

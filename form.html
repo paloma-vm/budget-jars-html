@@ -10,194 +10,195 @@
 <body>
     <header>
         <nav>
-            <ul>
-                <li>Home</li>
-                <li>Get Started</li>
-                <li>About</li>
-            </ul>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="form.html">Get Started</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
+        <h1 class="header-title">Budget Jars</h1>
         </nav>
     </header>
-    <div className='BudgetForm'>
+    <div class='BudgetForm'>
       <h2>
         Please enter monthly amounts in the blank spaces. 
         If an item does not apply, please leave the space blank.
       </h2>
 
       <h3>Total Income</h3>
-      <form className='TotalIncome'>
-        <div className='row'>
+      <form class='TotalIncome'>
+        <div class='row'>
           <label>Net income #1</label>
           <input
             type="number"
           />
         </div>
-        <div className='row'>
+        <div class='row'>
           <label>Net income #2</label>
           <input
             type="number"
-            value={netIncome2}
+            id={netIncome2}
           />
         </div>
-        <div className='row'>
+        <div class='row'>
           <label>Rental income</label>
           <input
             type="number"
-            value={rentalIncome}
+            id={rentalIncome}
           />
         </div>
-        <div className='row'>
+        <div class='row'>
           <label>Spousal/Child Support</label>
           <input
             type="number"
-            value={spousalChild}
+            id={spousalChild}
           />
         </div>
-        <div className='row'>
+        <div class='row'>
           <label>Government Benefits</label>
           <input
             type="number"
-            value={govtBenefits}
+            id={govtBenefits}
           />
         </div>
-        <div className='row'>
+        <div class='row'>
           <label>Other income</label>
           <input
             type="number"
-            value={otherIncome}
+            id={otherIncome}
           />
         </div>
       </form>
 
       <h3>Fixed Expenses</h3>
-      <form className='FixedExpenses'>
-        <div className='row'>
+      <form class='FixedExpenses'>
+        <div class='row'>
           <label>Mortgage or Rent</label>
           <input
             type="number"
-            value={mortgage}
+            id={mortgage}
           />
         </div>
-        <div className='row'>
+        <div class='row'>
           <label>Property Tax</label>
           <input
             type="number"
-            value={propertyTax}
+            id={propertyTax}
           />
         </div>
-        <div className='row'>
+        <div class='row'>
           <label>Electricity</label>
           <input
             type="number"
-            value={electricity}
+            id={electricity}
           />
         </div>
-        <div className='row'>
+        <div class='row'>
           <label>Gas and Water</label>
           <input
             type="number"
-            value={gasWater}
+            id={gasWater}
           />
         </div>
-        <div className='row'>
+        <div class='row'>
           <label>Maintenance Fees</label>
           <input
             type="number"
-            value={maintenanceFees}
+            id={maintenanceFees}
           />
         </div>
-        <div className='row'>
+        <div class='row'>
           <label>Cable</label>
           <input
             type="number"
-            value={cable}
+            id={cable}
           />
         </div>
-        <div className='row'>
+        <div class='row'>
           <label>Phone #1</label>
           <input
             type="number"
-            value={phone1}
+            id={phone1}
           />
         </div>
-        <div className='row'>
+        <div class='row'>
           <label>Phone #2</label>
           <input
             type="number"
-            value={phone2}
+            id={phone2}
           />
         </div>
-        <div className='row'>
+        <div class='row'>
           <label>Internet</label>
           <input
             type="number"
-            value={internet}
+            id={internet}
           />    
         </div>
-        <div className='row'>
+        <div class='row'>
           <label>Home Insurance</label>
           <input
             type="number"
-            value={homeInsurance}
+            id={homeInsurance}
           />
         </div>
-        <div className='row'>
+        <div class='row'>
           <label>Childcare</label>
           <input
             type="number"
-            value={childcare}
+            id={childcare}
           />
         </div>
-        <div className='row'>
+        <div class='row'>
           <label>Car #1</label>
           <input
             type="number"
-            value={car1}
+            id={car1}
           />
         </div>
-        <div className='row'>
+        <div class='row'>
           <label>Car #2</label>
           <input
             type="number"
-            value={car2}
+            id={car2}
           />
         </div>
-        <div className='row'>
+        <div class='row'>
           <label>Car insurance and registration</label>
           <input
             type="number"
-            value={carInsRegn}
+            id={carInsRegn}
           />    
         </div>
-        <div className='row'>
+        <div class='row'>
           <label>Life and Health Insurance</label>
           <input
             type="number"
-            value={lifeHealthIns}
+            id={lifeHealthIns}
           />  
         </div>
       </form>
 
       <h3>Variable Expenses</h3>
-      <form className='VariableExpenses'>
-        <div className='row'>
+      <form class='VariableExpenses'>
+        <div class='row'>
           <label>Allowances</label>
           <input
             type="number"
-            value={allowances}
+            id={allowances}
           />
         </div>
-        <div className='row'>
+        <div class='row'>
           <label>Gas/oil</label>
           <input
             type="number"
-            value={gasOil}
+            id={gasOil}
           />
         </div>
-        <div className='row'>
+        <div class='row'>
           <label>Car repairs</label>
           <input
             type="number"
-            value={carRepairs}
+            id="test"
           />
         </div>
         {/* pausing here to work on the jars */}

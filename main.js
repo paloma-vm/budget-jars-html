@@ -1,8 +1,58 @@
 import Jar from './Jar.js';
 
 const transportationAmount = 200;
+const carRepairs = 100;
 
 
+// event delegation
+document.body.addEventListener('click', (e) => {
+  console.log('%%%%%%%%%%%')
+  if (e.target.matches('#depositButton')) {
+    console.log('You deposited money')
+    const amt = parseFloat(document.getElementById('amt').value)
+    const category = document.getElementById('category').value
+    for (let i = 0; i < jars.length; i += 1) {
+      if (jars[i].label === category) {
+        jars[i].deposit(amt)
+      }
+    }
+    showJars()
+    
+  } else if (e.target.matches('#spendButton')) {
+      console.log('You spent money')
+      const amt = parseFloat(document.getElementById('amt').value)
+      const category = document.getElementById('category').value
+      for (let i = 0; i < jars.length; i += 1) {
+        if (jars[i].label === category) {
+          jars[i].spend(amt)
+        }
+      }
+      showJars()
+
+  }
+  
+})
+document.body.addEventListener('submit', (e) => {
+  e.preventDefault()
+})
+document.body.addEventListener('change', (e) => {
+  if (e.target.matches('.jar')) {
+
+  } else if (e.target.matches('#category')) {
+    const category = document.getElementById('category').value
+    for (let i = 0; i < jars.length; i += 1) {
+      if (jars[i].label === category) {
+        document.getElementById(`jar-${i}`).classList.add('active')
+      } else {
+        document.getElementById(`jar-${i}`).classList.remove('active')
+
+      }
+
+    }
+
+
+  }
+})
 
 const jars = []
 // const jarsContainer = document.querySelector('#jars')
@@ -14,9 +64,7 @@ const allJars = jarList.getElementsByClassName('btn')
 
 
 
-const options = document.getElementById('options')
-const mathAmount = Number(document.getElementById('amt').value)
-console.log(mathAmount)
+const options = document.getElementById('category')
 
 const depositButton = document.getElementById('depositButton')
 const spendButton = document.getElementById('spendButton')
@@ -40,12 +88,7 @@ function showJars() {
   let jarsDisplay = ''
   for (let i = 0; i < jars.length; i += 1) {
     const { label, amount } = jars[i]
-// as buttons
-    // jarsDisplay += `<button class='btn'><div class='jar' id='jar-${i}'>
-    // <img src='empty-jar.png'>
-    // <h3 class=display-label>${label}</h3>
-    // <h3 class=display-amount>$${amount}</h3>
-    // </div></button>`
+
   // NOT as buttons
     jarsDisplay += `<div class='jar' id='jar-${i}'>
     <img src='empty-jar.png'>
@@ -66,8 +109,17 @@ function jarSelect() {
     console.log(label)
    
   }
+  console.log(options, jarChoices)
   options.innerHTML = jarChoices
   // console.log(jarChoices)
+}
+
+function defineJars() {
+  let logJars = ''
+  for (let i = 0; i < jars.length; i += 1) {
+    const { label, amount } = jars[i]
+    // const jar`${i}` = jars[i]
+  }
 }
 
 function highlightDiv() {
@@ -86,32 +138,25 @@ function findSelected() {
   
 }
 
-function doMath() {
+// function doMath() {
   // let jarChoices = ''
-  for (let i = 0; i < jars.length; i += 1) {
-    const { label, amount } = jars[i]
+  // for (let i = 0; i < jars.length; i += 1) {
+    // const { label, amount } = jars[i]
 
     // options.getElementsByTagName("option");
-    for (let i = 0; i < options.length; i += 1) {
-      const val = options[i].getAttribute('value'); // could maybe use class here
-      if (val == label) {
+    // for (let i = 0; i < options.length; i += 1) {
+      // const val = options[i].getAttribute('value'); // could maybe use class here
+      // if (val == label) {
         // do math here
-        console.log(jars[i])
-        console.log(jars[i].amount)
-        jars[i].deposit(mathAmount)
-        console.log(jars[i].amount)
-        
-      }
-    }
+        // console.log(jars[i])
+        // console.log(jars[i].amount)
 
-   
-  }
-  // options.innerHTML = jarChoices
-}
-// get deposits and add to jar amount
-depositButton.addEventListener('click', (e) => {
-  
-})
+        
+      
+    // }
+
+
+
 
 
 	
@@ -147,12 +192,6 @@ for (let i = 0; i < allJars.length; i += 1) {
   });
 }
 
-// ------------------------------------------------
-// manage the money in the jars
-// const manage = document.getElementById('manage')
-// manage.innerHTML = 'hello'
-// const selectedJar = document.createElement('p')
-// select.className = 'selectedJar'
 
 // -----------------------------------------------------
 // displayJars()
@@ -163,7 +202,6 @@ console.log(jars)
 showJars()
 console.log(jars[5].amount) //75
 console.log(transportationAmount)
-gameFund.deposit(30)
 console.log(jars[5].amount) //105
 // have to showJars to see updated amounts, will add a listener
 //so that it updates automatically
@@ -174,7 +212,20 @@ document.getElementById('jar-0').addEventListener('click', highlightDiv);
 jarSelect()
 console.log(options)
 console.log(options.length)
-doMath()
+// doMath()
+depositButton.addEventListener('click', (e) => {
+  if (options.selectedIndex == 'Transportation') {
+    // get deposits and add to jar amount
+    const mathAmount = document.getElementById('amt')
+    console.log(mathAmount.value) 
+    jars[0].deposit(mathAmount.value)
+    console.log(mathAmount.value)
+  }
+  
+})
+
+console.log(jars[0])
+console.log(jars[0].amount)
 
 
 
