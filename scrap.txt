@@ -74,8 +74,24 @@ function BudgetForm() {
 
 export default Main
 
-   <!-- <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option> -->
+
+// tried this: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_active_element2
+// loop through the jar div and add the active class to the currently selected div
+for (let i = 0; i < allJars.length; i += 1) {
+  allJars[i].addEventListener('click', function() {
+    const current = document.getElementsByClassName('active');
+
+    // if there is no active class
+    if (current.length > 0) {
+      current[0].className = current[0].className.replace(' active', '');
+      // current[0].className = current[0].classList.toggle('highlight')
+      // current[0].className = current[0].classList.toggle(' active')
+
+    }
+
+    // add the active class to the currently selected div, if you are switching which div is active
+    this.className += ' active';
+    // this.classList.toggle('highlight');
+
+  });
+}
