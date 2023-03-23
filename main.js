@@ -1,7 +1,11 @@
 import Jar from './Jar.js';
 
-const transportationAmount = 200;
-const carRepairs = 100;
+const formId = "BudgetForm"; // form id
+const transportationAmt = 200;
+// const carRepairs = parseFloat(document.getElementById('rentalIncome').value)
+// const foodAmt = parseFloat(document.getElementById('foodAamt').value)
+// console.log(carRepairs)
+
 
 
 // event delegation
@@ -51,9 +55,6 @@ document.body.addEventListener('change', (e) => {
 const jars = []
 const jarList = document.getElementById('jars')
 
-// get all jars in jarList
-const allJars = jarList.getElementsByClassName('jar')
-
 const options = document.getElementById('category')
 
 const depositButton = document.getElementById('depositButton')
@@ -100,20 +101,12 @@ function highlightDiv() {
   jar0.classList.toggle('highlight');
 }
 
-// create the jars
-makeJar('Transportation', transportationAmount)
 
-makeJar('Food', 100)
-makeJar('Entertainment', 100)
-makeJar('Clothes/gifts', 100)
-makeJar('Everything else', 100)
 
 
 // -----------------------------------------------------
-showJars()
-// console.log(jars)
-jarSelect()
-document.getElementById('jar-0').addEventListener('click', highlightDiv);
+// I can use event delegation with this line below to add as a feature in the future
+// document.getElementById('jar-0').addEventListener('click', highlightDiv);
 
 
 // console.log(options)
@@ -121,7 +114,29 @@ document.getElementById('jar-0').addEventListener('click', highlightDiv);
 
 // console.log(jars[0])
 // console.log(jars[0].amount)
+/**
+ * A function to retrieve the form data and use it to create the jar starting amounts
+ */
+let savedData
+const displayPage = () => {
+  if (localStorage.key(formId)) {
+    savedData = JSON.parse(localStorage.getItem(formId))
+    console.log(savedData)
+    console.log(savedData.netIncome1)
+    console.log(savedData.netIncome2)
+    // create the jars
+    makeJar('Transportation', transportationAmt)
 
+    makeJar('Food', parseFloat(savedData.netIncome1))
+    makeJar('Entertainment', 100)
+    makeJar('Clothes/gifts', 100)
+    makeJar('Everything else', 100)
+    showJars()
+    jarSelect()
+  }
+}
+
+displayPage() // create jars and show deposit/spend input 
 
 
 

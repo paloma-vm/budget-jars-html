@@ -18,24 +18,25 @@
         <h1 class="header-title">Budget Jars</h1>
         </nav>
     </header>
-    <div class='BudgetForm'>
+    <form class='BudgetForm' id="BudgetForm">
       <h2>
         Please enter monthly amounts in the blank spaces. 
         If an item does not apply, please leave the space blank.
       </h2>
 
       <h3>Total Income</h3>
-      <form class='TotalIncome'>
         <div class='row'>
           <label>Net income #1</label>
           <input
             type="number"
+            name="netIncome1"
           />
         </div>
         <div class='row'>
           <label>Net income #2</label>
           <input
             type="number"
+            name="netIncome2"
             id={netIncome2}
           />
         </div>
@@ -43,13 +44,15 @@
           <label>Rental income</label>
           <input
             type="number"
-            id={rentalIncome}
+            name="rentalIncome"
+            id="rentalIncome"
           />
         </div>
         <div class='row'>
           <label>Spousal/Child Support</label>
           <input
             type="number"
+            name="spousalChild"
             id={spousalChild}
           />
         </div>
@@ -57,24 +60,24 @@
           <label>Government Benefits</label>
           <input
             type="number"
+            name="govtBenefits"
             id={govtBenefits}
           />
         </div>
-        <div class='row'>
+        <div class='row bottom-row'>
           <label>Other income</label>
           <input
             type="number"
-            id={otherIncome}
+            name="otherIncome"
           />
         </div>
-      </form>
 
       <h3>Fixed Expenses</h3>
-      <form class='FixedExpenses'>
         <div class='row'>
           <label>Mortgage or Rent</label>
           <input
             type="number"
+            name="mortgage"
             id={mortgage}
           />
         </div>
@@ -82,6 +85,7 @@
           <label>Property Tax</label>
           <input
             type="number"
+            name="propertyTax"
             id={propertyTax}
           />
         </div>
@@ -89,6 +93,7 @@
           <label>Electricity</label>
           <input
             type="number"
+            name="electricity"
             id={electricity}
           />
         </div>
@@ -96,6 +101,7 @@
           <label>Gas and Water</label>
           <input
             type="number"
+            name="gasWater"
             id={gasWater}
           />
         </div>
@@ -103,6 +109,7 @@
           <label>Maintenance Fees</label>
           <input
             type="number"
+            name="maintenanceFees"
             id={maintenanceFees}
           />
         </div>
@@ -110,6 +117,7 @@
           <label>Cable</label>
           <input
             type="number"
+            name="cable"
             id={cable}
           />
         </div>
@@ -117,6 +125,7 @@
           <label>Phone #1</label>
           <input
             type="number"
+            name="phone1"
             id={phone1}
           />
         </div>
@@ -124,6 +133,7 @@
           <label>Phone #2</label>
           <input
             type="number"
+            name="phone2"
             id={phone2}
           />
         </div>
@@ -131,6 +141,7 @@
           <label>Internet</label>
           <input
             type="number"
+            name="internet"
             id={internet}
           />    
         </div>
@@ -138,6 +149,7 @@
           <label>Home Insurance</label>
           <input
             type="number"
+            name="homeInsurance"
             id={homeInsurance}
           />
         </div>
@@ -145,6 +157,7 @@
           <label>Childcare</label>
           <input
             type="number"
+            name="childcare"
             id={childcare}
           />
         </div>
@@ -152,6 +165,7 @@
           <label>Car #1</label>
           <input
             type="number"
+            name="car1"
             id={car1}
           />
         </div>
@@ -159,6 +173,7 @@
           <label>Car #2</label>
           <input
             type="number"
+            name="car2"
             id={car2}
           />
         </div>
@@ -166,24 +181,25 @@
           <label>Car insurance and registration</label>
           <input
             type="number"
+            name="carInsRegn"
             id={carInsRegn}
           />    
         </div>
-        <div class='row'>
+        <div class='row bottom-row'>
           <label>Life and Health Insurance</label>
           <input
             type="number"
+            name="lifeHealthIns"
             id={lifeHealthIns}
           />  
         </div>
-      </form>
 
       <h3>Variable Expenses</h3>
-      <form class='VariableExpenses'>
         <div class='row'>
           <label>Allowances</label>
           <input
             type="number"
+            name="allowances"
             id={allowances}
           />
         </div>
@@ -191,6 +207,7 @@
           <label>Gas/oil</label>
           <input
             type="number"
+            name="gasOil"
             id={gasOil}
           />
         </div>
@@ -198,15 +215,21 @@
           <label>Car repairs</label>
           <input
             type="number"
-            id="test"
+            name="carRepairs"
+            id="carRepairs"
           />
         </div>
-        {/* pausing here to work on the jars */}
-
-
-
-      </form>
-    </div>
+      <h3>JAR MONEY</h3>
+        <div class='row'>
+          <label>Food</label>
+          <input
+            type="number"
+            name="foodAmt"
+            id="foodAmt"
+          />
+        </div>
+        <button type="submit" id="calc">Calculate</button>
+    </form>
     <footer>
         <ul>
             <li>Paloma Valdez-Marsh</li>
@@ -214,5 +237,6 @@
         </ul>
 
     </footer>
+    <script src="form.js"></script>
 </body>
 </html>

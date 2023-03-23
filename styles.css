@@ -10,10 +10,13 @@ ul {
 }
 
 a {
-    display: inline-block;
     font-weight: bold;
-    text-decoration: none;
-    
+    text-decoration: none; 
+}
+
+a:active {
+    font-weight: bold;
+    text-decoration-line: underline; 
 }
 
 ul {
@@ -92,6 +95,7 @@ button {
     display: flex;
     gap: 2em;
     justify-content: center;
+    align-items: center;
 }
 
 .options {
@@ -105,15 +109,25 @@ option {
 }
 
 input {
+    font-size: medium;
+    padding: 0.5em;
+    border-left: 1px solid lightgray;
+    border-right: 0;
+    border-bottom: 0;
+    border-top: 0;
+   
+}
+
+.amt {
     font-size: large;
     padding: 0.5em;
 }
 
 footer {
-    position: fixed;
     bottom: 0;
-    left: 40%;
-    margin: auto;
+    left: 0;
+    text-align: center;
+    margin-top: auto;
     display: flex;
     justify-content: center;
 }
@@ -122,3 +136,20 @@ footer {
     margin-left: 100px;
 }
 
+.row {
+    width: 38%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid lightgrey;
+    border-bottom: 0;
+
+}
+
+.row > label {
+    padding-left: 0.5em;
+}
+
+.bottom-row {
+    border-bottom: 1px solid lightgrey;
+}
