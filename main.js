@@ -1,7 +1,11 @@
 import Jar from './Jar.js';
 
-const transportationAmount = 200;
-const carRepairs = 100;
+
+const transportationAmt = 200;
+// const carRepairs = parseFloat(document.getElementById('rentalIncome').value)
+// const foodAmt = parseFloat(document.getElementById('foodAamt').value)
+// console.log(carRepairs)
+
 
 
 // event delegation
@@ -51,9 +55,6 @@ document.body.addEventListener('change', (e) => {
 const jars = []
 const jarList = document.getElementById('jars')
 
-// get all jars in jarList
-const allJars = jarList.getElementsByClassName('jar')
-
 const options = document.getElementById('category')
 
 const depositButton = document.getElementById('depositButton')
@@ -101,7 +102,7 @@ function highlightDiv() {
 }
 
 // create the jars
-makeJar('Transportation', transportationAmount)
+makeJar('Transportation', transportationAmt)
 
 makeJar('Food', 100)
 makeJar('Entertainment', 100)
