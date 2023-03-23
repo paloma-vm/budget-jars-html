@@ -1,14 +1,14 @@
 // make Jar class, help from Mitchell
 class Jar {
-    constructor(label, amount) {
+    constructor(label, startBal, currentBal=startBal) {
       this.label = label
-      this.amount = amount
-  
+      this.startBal = startBal
+      this.currentBal = currentBal
     }
   
     spend(amount) {
-      if (this.amount > amount) {
-        this.amount -= amount
+      if (this.currentBal > amount) {
+        this.currentBal -= amount
         return true  // does not allow negative balance in jar
       }
   
@@ -16,11 +16,9 @@ class Jar {
     }
   
     deposit(amount) {
-      this.amount += amount
+      this.currentBal += amount
     }
     
-  
-   
   }
   
   export default Jar;

@@ -2,11 +2,6 @@ import Jar from './Jar.js';
 
 const formId = "BudgetForm"; // form id
 const transportationAmt = 200;
-// const carRepairs = parseFloat(document.getElementById('rentalIncome').value)
-// const foodAmt = parseFloat(document.getElementById('foodAamt').value)
-// console.log(carRepairs)
-
-
 
 // event delegation
 document.body.addEventListener('click', (e) => {
@@ -54,16 +49,10 @@ document.body.addEventListener('change', (e) => {
 
 const jars = []
 const jarList = document.getElementById('jars')
-
 const options = document.getElementById('category')
 
-const depositButton = document.getElementById('depositButton')
-const spendButton = document.getElementById('spendButton')
-
-
-
-function makeJar(label, amount) {
-  const jar = new Jar(label, amount)
+function makeJar(label, startBal, currentBal) {
+  const jar = new Jar(label, startBal, currentBal)
   jars.push(jar)
 }
 
@@ -71,12 +60,13 @@ function makeJar(label, amount) {
 function showJars() {
   let jarsDisplay = ''
   for (let i = 0; i < jars.length; i += 1) {
-    const { label, amount } = jars[i]
+    const { label, startBal, currentBal } = jars[i]
 
     jarsDisplay += `<div class='jar' id='jar-${i}'>
     <img src='empty-jar.png'>
     <h3 class=display-label>${label}</h3>
-    <h3 class=display-amount>$${amount}</h3>
+    <h3 class=display-startBal>$${startBal}</h3>
+    <h2 class=display-currentBal>$${currentBal}</h2>
     </div>`
   }
   jarList.innerHTML = jarsDisplay
@@ -96,26 +86,17 @@ function jarSelect() {
   options.innerHTML = jarChoices
 }
 
+// -----------------------------------------------------
+// I can use event delegation with this line below to add as a feature in the future
+// document.getElementById('jar-0').addEventListener('click', highlightDiv);
 function highlightDiv() {
   const jar0 = document.getElementById('jar-0');
   jar0.classList.toggle('highlight');
 }
 
-
-
-
-// -----------------------------------------------------
-// I can use event delegation with this line below to add as a feature in the future
-// document.getElementById('jar-0').addEventListener('click', highlightDiv);
-
-
-// console.log(options)
-// console.log(options.length)
-
-// console.log(jars[0])
-// console.log(jars[0].amount)
 /**
- * A function to retrieve the form data and use it to create the jar starting amounts
+ * A function to retrieve the form data and
+ * use it to create the jar starting balance
  */
 let savedData
 const displayPage = () => {
@@ -137,6 +118,7 @@ const displayPage = () => {
 }
 
 displayPage() // create jars and show deposit/spend input 
+console.log(jars)
 
 
 
