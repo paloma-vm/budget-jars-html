@@ -63,12 +63,20 @@ img {
     width: 100%;
 }
 
-.display-amount {
+.display-startBal {
     left: 0;
     position: absolute;
     top: 50%;
     bottom: 50%;
-    
+    text-align: center;
+    width: 100%;
+}
+
+.display-currentBal {
+    left: 0;
+    position: absolute;
+    top: 60%;
+    bottom: 40%;
     text-align: center;
     width: 100%;
 }
@@ -121,6 +129,7 @@ input {
 .amt {
     font-size: large;
     padding: 0.5em;
+    border: 2px solid lightgray
 }
 
 footer {
@@ -128,6 +137,17 @@ footer {
     left: 0;
     text-align: center;
     margin-top: auto;
+    display: flex;
+    justify-content: center;
+    font-size: small;
+}
+
+.footer-main {
+    position: fixed;
+    bottom: 0;
+    left: 40%;
+    text-align: center;
+    margin: auto;
     display: flex;
     justify-content: center;
 }

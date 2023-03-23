@@ -1,6 +1,6 @@
 const formId = "BudgetForm"; // form id
-const url = location.href; // href of the page
-const formIdentifier = `${url} ${formId}`; // identifies the form
+// const url = location.href; // href of the page
+// const formIdentifier = `${url} ${formId}`; // identifies the form
 const calcButton = document.querySelector("#calc");
 let form = document.querySelector(`#${formId}`); // select the form
 let formElements = form.elements;
