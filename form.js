@@ -10,15 +10,15 @@ let formElements = form.elements;
  * and returns them as an object
  * It loops through all the elements of the form
  * and saves their names and values as key:value pairs
- * When the user clicks the calculate button, the data is saved
- * as JSON to localStorage
+ * When the user clicks the calculate button, 
+ * the data is saved as JSON to localStorage
  * (help from https://www.telerik.com/blogs/save-for-later-feature-in-forms-using-localstorage)
 */
 const getBudgetData = () => {
-  let data = { [formIdentifier]: {} }; 
+  let data = { [formId]: {} }; 
   for (const element of formElements) {
     if (element.name.length > 0) {
-      data[formIdentifier][element.name] = element.value;
+      data[formId][element.name] = element.value;
     }
   }
   return data;
@@ -27,7 +27,7 @@ const getBudgetData = () => {
 calcButton.onclick = (e) => {
   e.preventDefault()
   data = getBudgetData()
-  localStorage.setItem(formIdentifier, JSON.stringify(data[formIdentifier]))
+  localStorage.setItem(formId, JSON.stringify(data[formId]))
   const confirmMessage = "Form was saved."
   console.log(confirmMessage)
 }
@@ -35,9 +35,9 @@ calcButton.onclick = (e) => {
 /**
  * A function to retrieve the form data and put it in the form
  */
-const retrieveData = () => {
-  if (localStorage.key(formIdentifier)) {
-    const savedData = JSON.parse(localStorage.getItem(formIdentifier))
+const fillFormWithSavedData = () => {
+  if (localStorage.key(formId)) {
+    const savedData = JSON.parse(localStorage.getItem(formId))
     for (const element of formElements) {
       if (element.name in savedData) {
         element.value = savedData[element.name]
@@ -47,4 +47,4 @@ const retrieveData = () => {
     console.log(confirmMessage)
   }
 }
-document.onload = retrieveData() // refill the form data when the document is loaded
+fillFormWithSavedData() // repopulate the form data
