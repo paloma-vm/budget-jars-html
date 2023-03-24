@@ -18,7 +18,7 @@ class Jar {
     deposit(amount) {
       this.currentBal += amount
     }
-    
+  
   }
   
   export default Jar;
