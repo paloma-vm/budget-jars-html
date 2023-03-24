@@ -44,6 +44,7 @@ img {
 .jar {
   
     position: relative;
+    box-sizing: border-box;
     /* text-align: center; */
 }
 
@@ -120,12 +121,18 @@ img {
 }
 
 .active, .btn:hover {
-    background-color: coral;
+    /* background-color: #89e1ec; */
+    border: 2px dashed black;
+    
 }
 
 button {
     width: 80px;
     height: 45px;
+    
+}
+.add-sub {
+    font-size: large;
 }
 
 .select-jar {
@@ -207,4 +214,10 @@ footer {
 /* .jar-money {
    
 } */
+.about {
+    width: 50%;
+    margin: auto;
+    font-size: 1.5em;
+    padding-top: 1em;
+}
 
