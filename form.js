@@ -1,7 +1,9 @@
+// import Jar from './Jar.js';
 const formId = "BudgetForm"; // form id
 const calcButton = document.querySelector("#calc");
 let form = document.querySelector(`#${formId}`); // select the form
 let formElements = form.elements;
+
 
 /** 
  * this function gets the values in the form 
@@ -26,6 +28,7 @@ calcButton.onclick = (e) => {
   e.preventDefault()
   data = getBudgetData()
   localStorage.setItem(formId, JSON.stringify(data[formId]))
+  // updateJars()
   const confirmMessage = "Form was saved."
   console.log(confirmMessage)
 }

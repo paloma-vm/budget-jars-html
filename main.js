@@ -68,9 +68,6 @@ function makeJar(label, startBal, currentBal) {
 
 // help from mood-shop assignment
 function showJars() {
-  // if (localStorage.key('savedJars')) {
-  //   savedData = JSON.parse(localStorage.getItem(formId))
-  // }
   let jarsDisplay = ''
   for (let i = 0; i < jars.length; i += 1) {
     const { label, startBal, currentBal } = jars[i]
@@ -93,7 +90,7 @@ function showJars() {
 }
 
 function jarSelect() {
-  let jarChoices = ''
+  let jarChoices = `<option value=','>-----------    select   -----------</option>`
   for (let i = 0; i < jars.length; i += 1) {
     const { label } = jars[i]
 
@@ -128,71 +125,62 @@ let savedJarsData
 // }
 
 function initializeJars() {
-  /** I am sure there is a more DRY way to do this, but it works and I am short on time 
-   * I need to do some more trials and show empty jars if it is a new user/reset
-  */
+  /** A function to create the jars */
   if (localStorage.key('jars')) {
     savedJarsData = JSON.parse(localStorage.getItem('jars'))
-    if (savedJarsData === null) {
-      console.log('it is null')
-    } else {
-        makeJar('Transportation', parseFloat(savedJarsData[0].startBal), parseFloat(savedJarsData[0].currentBal))
-        makeJar('Food', parseFloat(savedJarsData[1].startBal), parseFloat(savedJarsData[1].currentBal))
-        makeJar('Entertainment', parseFloat(savedJarsData[2].startBal), parseFloat(savedJarsData[2].currentBal))
-        makeJar('Clothes/gifts', parseFloat(savedJarsData[3].startBal), parseFloat(savedJarsData[3].currentBal))
-        makeJar('Everything else', parseFloat(savedJarsData[4].startBal), parseFloat(savedJarsData[4].currentBal))
+    if (savedJarsData !== undefined) {
+    /** I am sure there is a more DRY way to do this, but it works and I am short on time */
+    makeJar('Transportation', parseFloat(savedJarsData[0].startBal), parseFloat(savedJarsData[0].currentBal))
+    makeJar('Food', parseFloat(savedJarsData[1].startBal), parseFloat(savedJarsData[1].currentBal))
+    makeJar('Entertainment', parseFloat(savedJarsData[2].startBal), parseFloat(savedJarsData[2].currentBal))
+    makeJar('Clothes/gifts', parseFloat(savedJarsData[3].startBal), parseFloat(savedJarsData[3].currentBal))
+    makeJar('Everything else', parseFloat(savedJarsData[4].startBal), parseFloat(savedJarsData[4].currentBal))
     }
   }
-}
+  
+  else if (localStorage.key(formId)) {
+    savedData = JSON.parse(localStorage.getItem(formId))
+  
+    makeJar('Transportation', parseFloat(savedData.transportationAmt))
+    makeJar('Food', parseFloat(savedData.foodAmt))
+    makeJar('Entertainment', parseFloat(savedData.entertainmentAmt))
+    makeJar('Clothes/gifts', parseFloat(savedData.clothesGiftsAmt))
+    makeJar('Everything else', parseFloat(savedData.everythingElseAmt))
+    localStorage.setItem('jars', JSON.stringify(jars))
+  } // makeJar('Transportation', parseFloat(0), parseFloat(0))
+}    // makeJar('Food', 0, 0)
+    // makeJar('Entertainment', 0, 0)
+    // makeJar('Clothes/gifts', 0, 0)
+    // makeJar('Everything else', 0, 0)
+    // localStorage.setItem('jars', JSON.stringify(jars))
+    // have a pop-up directing user to Get Started
+    // jarList.innerHTML = 'use the Get Started link to make a budget'
+
+  
+
+  // } else if (localStorage.key('jars') == undefined) {
+  //     makeJar('Transportation', 0, 0)
+  //     makeJar('Food', 0, 0)
+  //     makeJar('Entertainment', 0, 0)
+  //     makeJar('Clothes/gifts', 0, 0)
+  //     makeJar('Everything else', 0, 0)
+
+  // }
 
 
-  // } else  if (localStorage.key(formId)) {
-  //     savedData = JSON.parse(localStorage.getItem(formId))
-    
-  //     makeJar('Transportation', parseFloat(savedData.transportationAmt))
-  //     makeJar('Food', parseFloat(savedData.foodAmt))
-  //     makeJar('Entertainment', parseFloat(savedData.entertainmentAmt))
-  //     makeJar('Clothes/gifts', parseFloat(savedData.clothesGiftsAmt))
-  //     makeJar('Everything else', parseFloat(savedData.everythingElseAmt))
-  //   }
- // else get started
+
 
 
 /**
  * A function to retrieve the form data and
  * use it to create the jar starting balance
  */
-// let savedData
-// let savedJarsData
-
 const displayPage = () => {
-  // if (localStorage.key(formId)) {
-  //   savedData = JSON.parse(localStorage.getItem(formId))
 
-    // console.log(savedData)
-    // console.log(savedData.netIncome1)
-    // console.log(savedData.netIncome2)
-    // create the jars
-    // -----------------------------------
-  
-    // -----------------------------------
-
-    // makeJar('Transportation', parseFloat(savedData.transportationAmt))
-
-    // makeJar('Food', parseFloat(savedData.foodAmt))
-    // makeJar('Entertainment', parseFloat(savedData.entertainmentAmt))
-    // makeJar('Clothes/gifts', parseFloat(savedData.clothesGiftsAmt))
-    // makeJar('Everything else', parseFloat(savedData.everythingElseAmt))
-    initializeJars()
-    showJars()
-    jarSelect()
-  // } else if (localStorage.key('savedJars')) {
-  //   jars = JSON.parse(localStorage.getItem(jars))
-    
-
-  //   showJars()
-  //   jarSelect()
-  // }
+  initializeJars()
+  showJars()
+  jarSelect()
+ 
 }
 
 displayPage() // create jars and show deposit/spend input 

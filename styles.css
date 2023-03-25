@@ -26,6 +26,7 @@ ul {
 .header-title {
     display: flex;
     justify-content: center;
+    padding: 0.5em;
 }
 
 img {
@@ -131,14 +132,26 @@ button {
     height: 45px;
     
 }
+
+.buttons {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 1em;
+    
+}
 .add-sub {
-    font-size: large;
+    font-size: xx-large;
+    border-radius: 10px;
+    width: 70px;
+    height: 45px;
+    background-color: lightgray;
+
 }
 
 .select-jar {
     font-size: large;
     display: flex;
-    gap: 2em;
+    gap: 1.5em;
     justify-content: center;
     align-items: center;
 }
@@ -166,7 +179,8 @@ input {
 .amt {
     font-size: large;
     padding: 0.5em;
-    border: 2px solid lightgray
+    border: 2px solid lightgray;
+    border-radius: 10px;
 }
 
 footer {
