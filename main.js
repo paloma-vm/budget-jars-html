@@ -95,7 +95,7 @@ function jarSelect() {
     const { label } = jars[i]
 
     jarChoices += `<option value='${label}'>${label}</option>`
-    console.log(label)
+    // console.log(label)
    
   }
   console.log(options, jarChoices)
@@ -138,7 +138,7 @@ function initializeJars() {
     makeJar('Entertainment', 0, 0)
     makeJar('Clothes/gifts', 0, 0)
     makeJar('Everything else', 0, 0)
-    // localStorage.setItem('jars', JSON.stringify(jars))
+    localStorage.setItem('jars', JSON.stringify(jars))
   }
 } 
 // function initializeJars() {
