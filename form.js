@@ -9,10 +9,10 @@ const jars = JSON.parse(localStorage.getItem('jars'))
 console.log('before update jars')
 console.log(jars)
 
-function makeJar(label, startBal, currentBal) {
-  const jar = new Jar(label, startBal, currentBal)
-  jars.push(jar)
-}
+// calculate jar amounts based on budget
+
+
+
 // update jars based on the budget sheet
 function updateJars() {
   // if (localStorage.key('jars')) {
@@ -24,10 +24,6 @@ function updateJars() {
 
   }
 
-  // TODO: if starting from scratch, make the startBal equal to the currentBal
-  // current bal should be separate from starting bal because user could adjust budget while there is $ in the jar
- 
-
   // if saved data is not undefined, update the starting amount based on the budget sheet 
   if (savedData !== undefined) {
     jars[0].startBal = parseFloat(savedData.transportationAmt)
@@ -37,20 +33,21 @@ function updateJars() {
     jars[4].startBal = parseFloat(savedData.everythingElseAmt)
     console.log(parseFloat(savedData.everythingElseAmt))
 
-    // for (let i = 0; i < jars.length; i++) {
-    //   if (jars[i].currentBal == 0 || jars[i].currentBal == Null) {
-    //     jars[i].currentBal = jars[i].startBal
-    //   }
-      // if (jars[i].currentBal == 0) {
-      //   jars[i].currentBal = jars[i].startBal
-      // }
-      // if (jars[i].currentBal == NaN) {
-      //   jars[i].currentBal = 0
-      // }
+    // when the jars are initialized, they are all at zero.  When the budget is made, the 
+    // start bal will be equal to the current bal. 
+    // NOTE:  I will have to write more code to account for when a jar goes back to zero after
+    // all the money is spent, because in that case the startBal will not be equal to the current bal
 
-    
+    for (let i = 0; i < jars.length; i++) {
+      // if (jars[i].currentBal == 0 || jars[i].currentBal == Null) {
+      if (jars[i].currentBal == 0) {
+        jars[i].currentBal = jars[i].startBal
+        console.log(jars[i].currentBal, jars[i].startBal)
+      }
+  
+    }
 
-    // localStorage.setItem('jars', JSON.stringify(jars))
+    localStorage.setItem('jars', JSON.stringify(jars))
 
     console.log('jars updated')
     console.log(jars)
@@ -100,7 +97,7 @@ const fillFormWithSavedData = () => {
     const savedData = JSON.parse(localStorage.getItem(formId))
     for (const element of formElements) {
       if (element.name in savedData) {
-        console.log(element.name, savedData[element.name] || 0)
+        // console.log(element.name, savedData[element.name] || 0)
         
         element.value = savedData[element.name] || 0
       }
@@ -114,4 +111,7 @@ const fillFormWithSavedData = () => {
     console.log(confirmMessage)
   }
 }
+
 fillFormWithSavedData() // repopulate the form data
+
+

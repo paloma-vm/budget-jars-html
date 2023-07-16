@@ -1,7 +1,6 @@
 import Jar from './Jar.js';
 
 const formId = "BudgetForm"; // form id
-const transportationAmt = 200;
 
 // event delegation
 document.body.addEventListener('click', (e) => {
@@ -62,9 +61,6 @@ function makeJar(label, startBal, currentBal) {
   const jar = new Jar(label, startBal, currentBal)
   jars.push(jar)
 }
-
-
-
 
 // help from mood-shop assignment
 function showJars() {
