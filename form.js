@@ -9,8 +9,57 @@ const jars = JSON.parse(localStorage.getItem('jars'))
 console.log('before update jars')
 console.log(jars)
 
-// calculate jar amounts based on budget
+// event delegation
+// event listener for input fields to trigger calculation when a change occurs.
+const inputFields = form.querySelectorAll("input[type='number']")
 
+inputFields.forEach((input) => {
+  input.addEventListener("change", CalcJarAmts)
+})
+
+// calculate jar amounts based on budget sheet
+function CalcJarAmts() {
+  // turn form inputs into numbers from strings
+  /* transportation */
+  const gasOil = parseFloat(formElements.gasOil.value)
+  const carRepairs = parseFloat(formElements.carRepairs.value)
+  const publicTranspo = parseFloat(formElements.publicTranspo.value)
+  const taxi = parseFloat(formElements.taxi.value)
+  const parking = parseFloat(formElements.parking.value)
+  /* food */
+  const groceries = parseFloat(formElements.groceries.value)
+  /* entertainment */
+  const restaurant = parseFloat(formElements.restaurant.value)
+  const entertainment = parseFloat(formElements.entertainment.value)
+  const hobby = parseFloat(formElements.hobby.value)
+  const sports = parseFloat(formElements.sports.value)
+  const clubUnion = parseFloat(formElements.clubUnion.value)
+  /* clothes/gifts */
+  const clothes = parseFloat(formElements.clothes.value)
+  const familyGifts = parseFloat(formElements.familyGifts.value)
+  /* everything else */
+  const allowances = parseFloat(formElements.allowances.value)
+  const medicalDental = parseFloat(formElements.medicalDental.value)
+  const pet = parseFloat(formElements.pet.value)
+  const vacation = parseFloat(formElements.vacation.value)
+  const charity = parseFloat(formElements.charity.value)
+  const bankFees = parseFloat(formElements.bankFees.value)
+
+  // calculate jar amounts
+  const transportationAmt = gasOil + carRepairs + publicTranspo + taxi + parking
+  const foodAmt = groceries
+  const entertainmentAmt = restaurant + entertainment + hobby + sports + clubUnion
+  const clothesGiftsAmt = clothes + familyGifts
+  const everythingElseAmt = allowances + medicalDental + pet + vacation + charity + bankFees
+
+  // update jar amount input fields with the calculated amounts (to 2 decimal places)
+  formElements.transportationAmt.value = transportationAmt.toFixed(2)
+  formElements.foodAmt.value = foodAmt.toFixed(2)
+  formElements.entertainmentAmt.value = entertainmentAmt.toFixed(2)
+  formElements.clothesGiftsAmt.value = clothesGiftsAmt.toFixed(2)
+  formElements.everythingElseAmt.value = everythingElseAmt.toFixed(2)
+
+}
 
 
 // update jars based on the budget sheet
